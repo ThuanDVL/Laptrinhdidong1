@@ -1,0 +1,378 @@
+{
+  "info": {
+    "name": "Fellow4u API Collection",
+    "description": "Complete API collection for Fellow4u Flutter app with 35+ endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User (API #1)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"phone\": \"0123456789\",\n  \"avatar\": \"https://avatar.example.com/john.jpg\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/auth/register", "path": ["auth", "register"]}
+          }
+        },
+        {
+          "name": "Login User (API #2)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/auth/login", "path": ["auth", "login"]}
+          }
+        },
+        {
+          "name": "Forgot Password (API #3)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/auth/forgot-password", "path": ["auth", "forgot-password"]}
+          }
+        },
+        {
+          "name": "Verify OTP (API #4)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"otp\": \"123456\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/auth/verify-otp", "path": ["auth", "verify-otp"]}
+          }
+        },
+        {
+          "name": "Reset Password (API #5)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"newPassword\": \"newpassword123\",\n  \"otp\": \"123456\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/auth/reset-password", "path": ["auth", "reset-password"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "User Profile",
+      "item": [
+        {
+          "name": "Get User Profile (API #6)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/users/1", "path": ["users", "1"]}
+          }
+        },
+        {
+          "name": "Update User Profile (API #7)",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe Updated\",\n  \"phone\": \"0987654321\",\n  \"bio\": \"I love traveling\",\n  \"avatar\": \"https://avatar.example.com/john-updated.jpg\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/users/1", "path": ["users", "1"]}
+          }
+        },
+        {
+          "name": "Get User Settings (API #8)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/users/1/settings", "path": ["users", "1", "settings"]}
+          }
+        },
+        {
+          "name": "Update User Settings (API #9)",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notifications\": true,\n  \"emailUpdates\": true,\n  \"language\": \"vi\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/users/1/settings", "path": ["users", "1", "settings"]}
+          }
+        },
+        {
+          "name": "Delete User Account (API #10)",
+          "request": {
+            "method": "DELETE",
+            "url": {"raw": "{{baseUrl}}/users/1", "path": ["users", "1"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tours & Trips",
+      "item": [
+        {
+          "name": "Get All Tours (API #11)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/tours?page=1&limit=10&category=adventure", "path": ["tours"], "query": [{"key": "page", "value": "1"}, {"key": "limit", "value": "10"}, {"key": "category", "value": "adventure"}]}
+          }
+        },
+        {
+          "name": "Get Tour Detail (API #12)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/tours/1", "path": ["tours", "1"]}
+          }
+        },
+        {
+          "name": "Search Tours (API #13)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/tours/search?q=Ha Noi&location=Hanoi&minPrice=1000000&maxPrice=5000000", "path": ["tours", "search"], "query": [{"key": "q", "value": "Ha Noi"}, {"key": "location", "value": "Hanoi"}, {"key": "minPrice", "value": "1000000"}, {"key": "maxPrice", "value": "5000000"}]}
+          }
+        },
+        {
+          "name": "Create Tour (API #14)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Ha Noi 3 Days Tour\",\n  \"description\": \"Explore the beauty of Hanoi\",\n  \"location\": \"Hanoi\",\n  \"price\": 1500000,\n  \"startDate\": \"2024-05-01\",\n  \"endDate\": \"2024-05-03\",\n  \"maxParticipants\": 20,\n  \"image\": \"https://example.com/hanoi.jpg\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/tours", "path": ["tours"]}
+          }
+        },
+        {
+          "name": "Update Tour (API #15)",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Ha Noi 3 Days Tour - Updated\",\n  \"description\": \"Explore the beauty of Hanoi with new itinerary\",\n  \"price\": 1800000\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/tours/1", "path": ["tours", "1"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Get User Bookings (API #16)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/bookings?userId=1", "path": ["bookings"], "query": [{"key": "userId", "value": "1"}]}
+          }
+        },
+        {
+          "name": "Create Booking (API #17)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"1\",\n  \"tourId\": \"1\",\n  \"numberOfPersons\": 4,\n  \"bookingDate\": \"2024-05-01\",\n  \"status\": \"pending\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/bookings", "path": ["bookings"]}
+          }
+        },
+        {
+          "name": "Get Booking Detail (API #18)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/bookings/1", "path": ["bookings", "1"]}
+          }
+        },
+        {
+          "name": "Cancel Booking (API #19)",
+          "request": {
+            "method": "DELETE",
+            "url": {"raw": "{{baseUrl}}/bookings/1", "path": ["bookings", "1"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        {
+          "name": "Create Payment (API #20)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookingId\": \"1\",\n  \"amount\": 6000000,\n  \"paymentMethod\": \"credit_card\",\n  \"status\": \"pending\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/payments", "path": ["payments"]}
+          }
+        },
+        {
+          "name": "Verify Payment (API #21)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/payments/1/verify", "path": ["payments", "1", "verify"]}
+          }
+        },
+        {
+          "name": "Get Payment History (API #22)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/payments/history?userId=1", "path": ["payments", "history"], "query": [{"key": "userId", "value": "1"}]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notifications",
+      "item": [
+        {
+          "name": "Get Notifications (API #23)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/notifications?userId=1", "path": ["notifications"], "query": [{"key": "userId", "value": "1"}]}
+          }
+        },
+        {
+          "name": "Mark Notification as Read (API #24)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/notifications/1/read", "path": ["notifications", "1", "read"]}
+          }
+        },
+        {
+          "name": "Delete Notification (API #25)",
+          "request": {
+            "method": "DELETE",
+            "url": {"raw": "{{baseUrl}}/notifications/1", "path": ["notifications", "1"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Messaging & Chat",
+      "item": [
+        {
+          "name": "Get Conversations (API #26)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/conversations?userId=1", "path": ["conversations"], "query": [{"key": "userId", "value": "1"}]}
+          }
+        },
+        {
+          "name": "Get Messages (API #27)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/messages?conversationId=1", "path": ["messages"], "query": [{"key": "conversationId", "value": "1"}]}
+          }
+        },
+        {
+          "name": "Send Message (API #28)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"conversationId\": \"1\",\n  \"senderId\": \"1\",\n  \"message\": \"Hello, are you available for the trip?\",\n  \"timestamp\": \"2024-04-22T10:30:00Z\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/messages", "path": ["messages"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Favorites & Wishlist",
+      "item": [
+        {
+          "name": "Get Favorites (API #29)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/favorites?userId=1", "path": ["favorites"], "query": [{"key": "userId", "value": "1"}]}
+          }
+        },
+        {
+          "name": "Add to Favorites (API #30)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"1\",\n  \"tourId\": \"1\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/favorites", "path": ["favorites"]}
+          }
+        },
+        {
+          "name": "Remove from Favorites (API #31)",
+          "request": {
+            "method": "DELETE",
+            "url": {"raw": "{{baseUrl}}/favorites/1", "path": ["favorites", "1"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Additional Features",
+      "item": [
+        {
+          "name": "Get Home Feed (API #32)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/home/feed", "path": ["home", "feed"]}
+          }
+        },
+        {
+          "name": "Get Tour Reviews (API #33)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/reviews?tourId=1", "path": ["reviews"], "query": [{"key": "tourId", "value": "1"}]}
+          }
+        },
+        {
+          "name": "Post Review (API #34)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tourId\": \"1\",\n  \"userId\": \"1\",\n  \"rating\": 4.5,\n  \"comment\": \"Amazing trip! The tour guide was very helpful.\",\n  \"date\": \"2024-04-22T10:00:00Z\"\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/reviews", "path": ["reviews"]}
+          }
+        },
+        {
+          "name": "Get Categories (API #35)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/categories", "path": ["categories"]}
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.requex.me/api/v1",
+      "type": "string"
+    }
+  ]
+}

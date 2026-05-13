@@ -1,0 +1,21 @@
+# Gradle
+.gradle/
+build/
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+
+# Wrapper cache
+wrapper/dists/
+
+# Local config
+local.properties
+
+# IDE
+.idea/
+.vscode/
+
+# MacOS
+.DS_Store
